@@ -1,0 +1,4 @@
+[
+    {"user": "admin_user_01", "action": "DeleteStorage"},
+    {"user": "guest_user", "action": "Login"}
+]
