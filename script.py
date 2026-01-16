@@ -31,6 +31,12 @@ def setup_db():
     conn.commit()
     conn.close()
 
+def send_alert(user, action):
+    """Sends a notification when a threat is detected."""
+    alert_msg = f"🔔 ALERT: Incident report generated for {user} - Action: {action}"
+    print(alert_msg)
+    
+
 def process_logs(logs, target_user_name):
     threat_actions = ["DeleteStorage", "DisableLogging", "ChangeIAMPolicy"]
     processed_alerts = []
@@ -41,8 +47,9 @@ def process_logs(logs, target_user_name):
 
         if severity == "HIGH":
             print(f"🚨 CRITICAL THREAT: {entry['action']} detected by {entry['user']}!")
+            send_alert(entry["user"], entry["action"])
             # We use target_user_name which is "target_user"
-            deactivate_user_keys(target_user_name) 
+            deactivate_user_keys("target_user") 
             cloud_backup()
             
     return processed_alerts
