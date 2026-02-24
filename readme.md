@@ -1,5 +1,5 @@
-- DataxCloud Security SOAR
-A Python-based automated response tool that detects unauthorized AWS actions and neutralizes threats.
+- DataxCloud: A SOAR( Security Orchestration Automation Response)Python-based automated response tool that detects unauthorized AWS actions and neutralizes threats.
+
 
 - Features
 - **Log Ingestion:** Scans JSON-formatted cloud events.
